@@ -1,9 +1,11 @@
-![Uploading Image.png…]()
+<img width="1270" height="712" alt="Image" src="https://github.com/user-attachments/assets/ef893a25-7095-4486-a890-4a40abe4f7aa" />
 <br />
 <br />
 
 프로젝트 인원 : 4명 (기획 1, 디자인 2, 개발 1)
+<br />
 제작 기간 : 25.07.11 - 25.07.13 (3일) 
+<br />
 개발 Tool : Unity (2022.3ver)
 <br />
 <br />
