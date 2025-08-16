@@ -63,3 +63,7 @@
 - Layer Ordering의 우선 순위
 - 가끔 나타나는 효과음, 미니게임 버그
 - Animation Controler를 통한 Sprite 관리 미구현
+<br />
+<br />
+
+시연 영상 : https://youtu.be/syHmv2i6YyE
