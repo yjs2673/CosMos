@@ -18,17 +18,24 @@ public class FuelGame : MonoBehaviour
         if (!nowPlay) return;
         checkCnt();
 
-        currtime += Time.unscaledDeltaTime;
-        if (currtime >= checktime)
-        {
-            currtime = 0f;
-            SelfFix();
-        }
+        // currtime += Time.unscaledDeltaTime;
+        // if (currtime >= checktime)
+        // {
+        //    currtime = 0f;
+        //    SelfFix();
+        // }
     }
 
     public void Load()
     {
         nowPlay = true;
+        currtime = 0f;
+
+        // 기존 Hole들 정리(선택)
+        foreach (var h in FindObjectsByType<Hole>(FindObjectsSortMode.None))
+        {
+            Destroy(h.gameObject);
+        }
 
         holeCnt = 7;
         for (int i = 0; i < 7; i++)
@@ -45,7 +52,7 @@ public class FuelGame : MonoBehaviour
         {
             nowPlay = false;
             minigameController.Success(1);
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
 
             AudioManager.instance.PlaySfx(AudioManager.Sfx.MiniClear);
         }
