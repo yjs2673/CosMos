@@ -13,7 +13,7 @@ public class OxygenGame : MonoBehaviour
 
     void Update()
     {
-        float delta = Time.unscaledDeltaTime;
+        if (!nowPlay) return;
         CheckLine();
     }
 

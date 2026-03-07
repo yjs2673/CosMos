@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
 
 public class BatteryGame : MonoBehaviour
@@ -14,6 +12,7 @@ public class BatteryGame : MonoBehaviour
 
     public float speed;
     int num;
+
     bool upMovable = true;
     bool downMovable = true;
     bool nowPlay = false;
@@ -27,7 +26,11 @@ public class BatteryGame : MonoBehaviour
 
     public void Load()
     {
+        // ✅ 이전 판 잔재 제거
+        StopAllCoroutines();
         nowPlay = true;
+        upMovable = true;
+        downMovable = true;
 
         num = Random.Range(0, 4);
         float value = num / 3f;
@@ -50,53 +53,32 @@ public class BatteryGame : MonoBehaviour
 
         switch (num)
         {
-            case 0:
-                if (0f <= uv && uv <= 0.22f && 0f <= dv && dv <= 0.22f)
-                    connect = true;
-                break;
-            case 1:
-                if (0.24f <= uv && uv <= 0.48f && 0.24f <= dv && dv <= 0.48f)
-                    connect = true;
-                break;
-            case 2:
-                if (0.52f <= uv && uv <= 0.75f && 0.52f <= dv && dv <= 0.75f)
-                    connect = true;
-                break;
-            case 3:
-                if (0.79f <= uv && uv <= 1f && 0.79f <= dv && dv <= 1f)
-                    connect = true;
-                break;
+            case 0: connect = (0f <= uv && uv <= 0.22f && 0f <= dv && dv <= 0.22f); break;
+            case 1: connect = (0.24f <= uv && uv <= 0.48f && 0.24f <= dv && dv <= 0.48f); break;
+            case 2: connect = (0.52f <= uv && uv <= 0.75f && 0.52f <= dv && dv <= 0.75f); break;
+            case 3: connect = (0.79f <= uv && uv <= 1f && 0.79f <= dv && dv <= 1f); break;
         }
 
         if (connect && Mathf.Abs(uv - dv) <= 0.6f)
         {
-            minigameController.Success(2);
             nowPlay = false;
-            gameObject.SetActive(false);
-
+            minigameController.Success(2);
+            
             AudioManager.instance.PlaySfx(AudioManager.Sfx.MiniClear);
         }
     }
 
     void Move()
     {
-        if (!nowPlay) return;
-
         float t = (Mathf.Sin(Time.unscaledTime * speed * Mathf.PI * 2f) + 1f) * 0.5f;
 
-        if (upMovable)
-        {
-            upMove.value = t;
-        }
-
-        if (downMovable)
-        {
-            downMove.value = 1f - t;
-        }
+        if (upMovable) upMove.value = t;
+        if (downMovable) downMove.value = 1f - t;
     }
 
     public void StopUp()
     {
+        if (!nowPlay) return;
         AudioManager.instance.PlaySfx(AudioManager.Sfx.ClickBtn);
 
         upMovable = false;
@@ -105,11 +87,13 @@ public class BatteryGame : MonoBehaviour
 
     public void StopDown()
     {
+        if (!nowPlay) return;
         AudioManager.instance.PlaySfx(AudioManager.Sfx.ClickBtn);
-        
+
         downMovable = false;
         StartCoroutine(SetDown(4f));
     }
+
     IEnumerator SetUp(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
