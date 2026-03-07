@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     [Header("State")]
     public bool isLive = true;
     public bool isPause = false;
+    public bool isShip = false;
     public bool isPlaying = false;
 
     [Header("Audio")]
@@ -235,6 +236,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenShipMenu()      // 우주선 메뉴 패널 활성화
     {
+        isShip = true;
         AudioManager.instance.PlaySfx(AudioManager.Sfx.ClickBtn);
         Time.timeScale = 0f;
         shipPanel.SetActive(true);
@@ -243,8 +245,10 @@ public class GameManager : MonoBehaviour
     public void CloseShipMenu()
     {
         if (isPlaying) return;
+        Time.timeScale = 1f;
         AudioManager.instance.PlaySfx(AudioManager.Sfx.ClickBtn);
         shipPanel.SetActive(false); // 우주선 메뉴 패널 비활성화
+        isShip = false;
     }
 
     void OpenDangerPanel()          // 수리 경고 패널 활성화
@@ -261,14 +265,14 @@ public class GameManager : MonoBehaviour
     public void OpenPauseMenu()
     {
         isPause = true;
-        Time.timeScale = 0f;
+        if (!isPlaying && !isShip) Time.timeScale = 0f;
         pausePanel.SetActive(true);
     }
 
     public void ClosePauseMenu()
     {
         isPause = false;
-        Time.timeScale = 1f;
+        if (!isPlaying && !isShip) Time.timeScale = 1f;
         pausePanel.SetActive(false);
     }
 
