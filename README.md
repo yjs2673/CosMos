@@ -61,10 +61,8 @@
 <br />
 
 개선 사항
-- 배경 맵 무한 생성 기능 미구현
-- Layer Ordering의 우선 순위
-- 가끔 나타나는 효과음, 미니게임 버그
-- Animation Controler를 통한 Sprite 관리 미구현
+- 배경 맵 무한 생성 기능
+- Animation Controler를 통한 Sprite 관리
 <br />
 <br />
 
