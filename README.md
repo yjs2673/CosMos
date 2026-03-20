@@ -60,10 +60,4 @@
 <br />
 <br />
 
-개선 사항
-- 배경 맵 무한 생성 기능
-- Animation Controler를 통한 Sprite 관리
-<br />
-<br />
-
 시연 영상 : https://youtu.be/syHmv2i6YyE
