@@ -60,4 +60,4 @@
 <br />
 <br />
 
-시연 영상 : https://youtu.be/syHmv2i6YyE
+[시연 영상](https://youtu.be/syHmv2i6YyE)
