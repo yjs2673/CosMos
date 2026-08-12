@@ -1,6 +1,6 @@
 # CosMos
 
-<img width="800" height="450" alt="Image" src="https://github.com/user-attachments/assets/ef893a25-7095-4486-a890-4a40abe4f7aa" />
+<img width="400" height="225" alt="Image" src="https://github.com/user-attachments/assets/ef893a25-7095-4486-a890-4a40abe4f7aa" />
 <br />
 <br />
 
