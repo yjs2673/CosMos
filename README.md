@@ -1,5 +1,7 @@
 # CosMos
 
+[시연 영상](https://youtu.be/syHmv2i6YyE)
+
 <img width="400" height="225" alt="Image" src="https://github.com/user-attachments/assets/ef893a25-7095-4486-a890-4a40abe4f7aa" />
 <br />
 <br />
@@ -57,7 +59,3 @@
 - 우주선의 HP가 모두 소진될 경우
 - 우주선의 세 기능이 모두 고장날 경우
 - 블랙홀의 코어에 충돌할 경우
-<br />
-<br />
-
-[시연 영상](https://youtu.be/syHmv2i6YyE)
